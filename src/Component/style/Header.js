@@ -18,15 +18,14 @@ export const ContainerHeader = styled.div`
     height: 100%;
     display: flex;
     align-items: flex-end;
-    z-index: 1;
   }
 
   .containerAnimationArrow {
     position: absolute;
     right: 2%;
     bottom: 2%;
-    z-index: 3;
     width: 15%;
+    z-index: 1;
   }
 
   .onda {
@@ -34,8 +33,7 @@ export const ContainerHeader = styled.div`
     width: 100%;
     height: 40%;
     position: absolute;
-    bottom: 0;
-    z-index: 2;
+    bottom: -1%;
   }
 `;
 export const ContentHeader = styled.div`
@@ -52,6 +50,10 @@ export const Logo = styled.div`
   align-items: center;
   /* background-color: yellow; */
   margin-left: 1rem;
+
+  img {
+    width: 100%;
+  }
 `;
 export const BtnContentHeader = styled.button`
   display: none;

@@ -30,7 +30,14 @@ export default function Item() {
             <ItemButtons className="itemButtonsInput">
               <BtnItem className="btnInput">Editar</BtnItem>
               <BtnItem className="btnInput">Deletar</BtnItem>
-              <BtnItem className="btnInput">Voltar</BtnItem>
+              <BtnItem
+                onClick={() => {
+                  setAlterar(false);
+                }}
+                className="btnInput"
+              >
+                Voltar
+              </BtnItem>
             </ItemButtons>
           </ItemContent>
         ) : (

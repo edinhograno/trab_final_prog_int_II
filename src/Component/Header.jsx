@@ -9,7 +9,7 @@ import {
 import Lottie from "react-lottie";
 import animationData from "../animation.json";
 import animationArrow from "../animationArrow.json";
-import logo from "../img/logo.svg";
+import logo from "../img/logo.png";
 import onda from "../img/onda.png";
 
 export default function Header() {
