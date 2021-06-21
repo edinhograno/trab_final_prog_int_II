@@ -1,0 +1,181 @@
+import styled, { createGlobalStyle } from "styled-components";
+
+const corLaranja = "#ff6700";
+const corRoxa = "#4e0093";
+
+export const LoginPage = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+
+  background-image: linear-gradient(120deg, ${corRoxa}, ${corLaranja});
+
+  button {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.8rem;
+    border: none;
+    height: 2.5rem;
+    width: 12rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    /* background-color: #c9c9c9; */
+    color: #fff;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .icon {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .btnVoltar {
+    position: absolute;
+    height: 1rem;
+    right: 0rem;
+    bottom: 1rem;
+    background-color: transparent;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button.btnVoltar,
+  button.icon {
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+`;
+export const LoginInfo = styled.div`
+  display: flex;
+  min-width: 18.75rem;
+  max-width: 30rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 55%;
+  height: 80%;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: -0.2rem 0.2rem 1.5rem #000;
+
+  .w-80 {
+    width: 80%;
+  }
+
+  h1 {
+    color: ${corRoxa};
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.6rem;
+  }
+`;
+export const LoginDados = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30%;
+
+  .email,
+  .password {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email input,
+  .password input {
+    height: 3.5rem;
+    padding: 0.875rem 1rem 0 0.625rem;
+    outline: 0;
+    border: 0.063rem solid #ddd;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    font-size: 1rem;
+  }
+  .email label,
+  .password label {
+    font-size: 1rem;
+    padding: 0 0.75rem;
+    color: #999;
+    pointer-events: none;
+    position: absolute;
+    transform: translate(0, 1.625rem) scale(1);
+    transform-origin: top left;
+    transition: all 0.2s ease-out;
+  }
+  .email:focus-within label,
+  .password:focus-within label {
+    transform: translate(0, 0.5rem) scale(0.75);
+  }
+`;
+
+export const LoginButtons = styled.div`
+  height: 50%;
+`;
+export const BtnLogin = styled.div`
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    opacity: 0.8;
+    background-color: ${corRoxa};
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+`;
+export const LoginSocial = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 50%;
+  width: 100%;
+
+  button:nth-child(1) {
+    opacity: 0.8;
+    background-color: #3b5998;
+  }
+
+  button:nth-child(2) {
+    opacity: 0.8;
+    background-color: #db4a39;
+  }
+  button:hover {
+    opacity: 1;
+  }
+`;
+export const NewAccountLogin = styled.div`
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: ${corRoxa};
+    opacity: 0.5;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+`;

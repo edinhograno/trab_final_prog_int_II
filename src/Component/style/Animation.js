@@ -3,12 +3,10 @@ import styled from "styled-components";
 const corLaranja = "#ff6700";
 const corRoxa = "#4e0093";
 
-export const ContainerHeader = styled.div`
-  /* display: none; */
-  width: 100vw;
+export const ContainerAnimation = styled.div`
+  width: 100%;
   height: 100vh;
   background-image: linear-gradient(120deg, ${corRoxa}, ${corLaranja} 120%);
-  pointer-events: none;
 
   .containerAnimationRocket {
     position: absolute;
@@ -18,6 +16,14 @@ export const ContainerHeader = styled.div`
     height: 100%;
     display: flex;
     align-items: flex-end;
+    pointer-events: none;
+
+    @media only screen and (min-width: 768px) {
+      max-width: 40rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   .containerAnimationArrow {
@@ -26,6 +32,8 @@ export const ContainerHeader = styled.div`
     bottom: 2%;
     width: 15%;
     z-index: 1;
+    max-width: 5rem;
+    pointer-events: none;
   }
 
   .onda {
@@ -34,27 +42,11 @@ export const ContainerHeader = styled.div`
     height: 40%;
     position: absolute;
     bottom: -1%;
-  }
-`;
-export const ContentHeader = styled.div`
-  display: flex;
-  width: 100%;
-  height: 8%;
-  /* background-color: green; */
-`;
-export const Logo = styled.div`
-  height: 100%;
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: yellow; */
-  margin-left: 1rem;
 
-  img {
-    width: 100%;
+    @media only screen and (min-width: 575px) {
+      height: 100%;
+      width: 100%;
+      bottom: -3%;
+    }
   }
-`;
-export const BtnContentHeader = styled.button`
-  display: none;
 `;

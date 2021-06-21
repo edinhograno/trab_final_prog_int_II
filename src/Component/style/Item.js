@@ -3,6 +3,12 @@ import styled from "styled-components";
 const corLaranja = "#ff6700";
 const corRoxa = "#4e0093";
 
+export const ContainerProduct = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+
 export const ContainerItem = styled.div`
   margin-top: 2.5rem;
   position: relative;
@@ -10,7 +16,18 @@ export const ContainerItem = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
-  /* background-color: red; */
+  max-width: 25rem;
+
+  button {
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color, color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: ${corLaranja};
+      color: #fff;
+    }
+  }
 
   .itemContentInput {
     order: 2;
@@ -58,6 +75,7 @@ export const ImgItem = styled.div`
     /* background-color: black; */
     width: 60%;
     transform: rotate(-45deg);
+    max-width: 20rem;
   }
 `;
 export const ItemContent = styled.div`
@@ -96,8 +114,10 @@ export const ItemContent = styled.div`
     font-size: 1.5rem;
     /* background-color: blue; */
     margin: 0;
+    font-weight: 500;
 
     span {
+      font-weight: 700;
       font-size: 2rem;
     }
   }

@@ -1,14 +1,19 @@
-import Header from "./Component/Header";
-import Item from "./Component/Item";
+import Menu from "./Component/Menu";
 import GlobalStyle from "./theme/globalStyles";
+import InitialPage from "./Pages/InitialPage";
+import LoginPage from "./Pages/LoginPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router>
       <GlobalStyle />
-      <Header />
-      <Item />
-    </>
+      <Menu />
+      <Switch>
+        <Route path="/" exact component={InitialPage} />
+        <Route path="/login" component={LoginPage} />
+      </Switch>
+    </Router>
   );
 }
 

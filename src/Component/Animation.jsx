@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import {
-  ContainerHeader,
-  ContentHeader,
-  Logo,
-  BtnContentHeader,
-  Scene,
-} from "./style/Header.js";
+import { ContainerAnimation } from "./style/Animation.js";
 import Lottie from "react-lottie";
 import animationData from "../animation.json";
 import animationArrow from "../animationArrow.json";
-import logo from "../img/logo.png";
 import onda from "../img/onda.png";
 
-export default function Header() {
+export default function Animation() {
   const [animation, setAnimation] = useState({
     isStopped: false,
     isPaused: false,
@@ -34,13 +27,7 @@ export default function Header() {
     },
   };
   return (
-    <ContainerHeader>
-      <ContentHeader>
-        <Logo>
-          <img className="logo" src={logo} alt="" />
-        </Logo>
-        <BtnContentHeader></BtnContentHeader>
-      </ContentHeader>
+    <ContainerAnimation>
       <div className="containerAnimationRocket">
         <Lottie
           options={defaultOptions}
@@ -60,6 +47,6 @@ export default function Header() {
         />
       </div>
       <img className="onda" src={onda} alt="" />
-    </ContainerHeader>
+    </ContainerAnimation>
   );
 }
