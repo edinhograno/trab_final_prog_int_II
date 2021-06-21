@@ -2,6 +2,7 @@ import React from "react";
 import {
   LoginPage,
   LoginInfo,
+  BtnVoltar,
   LoginDados,
   BtnLogin,
   LoginSocial,
@@ -43,18 +44,23 @@ export default function Login() {
           <a href="#">Criar uma conta</a>
         </NewAccountLogin>
       </LoginInfo>
-      <BtnItem className="btnVoltar">
-        <IoIosArrowDropleft className="icon" />
+      <BtnVoltar>
         <Link
           to="/"
           style={{
             textDecoration: "none",
             color: "#fff",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
           }}
         >
+          <IoIosArrowDropleft className="icon" />
           Voltar
         </Link>
-      </BtnItem>
+      </BtnVoltar>
     </LoginPage>
   );
 }

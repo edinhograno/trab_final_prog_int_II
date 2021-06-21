@@ -33,21 +33,6 @@ export const LoginPage = styled.div`
     font-size: 1.5rem;
   }
 
-  .btnVoltar {
-    position: absolute;
-    height: 1rem;
-    right: 0rem;
-    bottom: 1rem;
-    background-color: transparent;
-    font-size: 1rem;
-    text-transform: uppercase;
-    color: #fff;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
   button.btnVoltar,
   button.icon {
     opacity: 0.5;
@@ -79,6 +64,23 @@ export const LoginInfo = styled.div`
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.6rem;
+  }
+`;
+
+export const BtnVoltar = styled.a`
+  position: absolute;
+  height: 2rem;
+  width: 6rem;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 1;
   }
 `;
 export const LoginDados = styled.div`
