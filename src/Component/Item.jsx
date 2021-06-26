@@ -16,6 +16,7 @@ export default function Item() {
   const [isVisible, setIsVisible] = useState(true);
   const [tenis, setTenis] = useState([]);
   const [id, setId] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     Axios.get("http://localhost:3001/tenis")
@@ -40,7 +41,14 @@ export default function Item() {
   return (
     <>
       <ContainerProduct className="w-1200">
-        {isVisible ? <Cadastro /> : null}
+        {isVisible ? (
+          <>
+            <button className="btn-add" onClick={() => setIsOpen(true)}>
+              Adicionar Produto
+            </button>
+            <Cadastro isOpen={isOpen} setIsOpen={setIsOpen} />
+          </>
+        ) : null}
         <ContainerItem>
           {tenis.map((val, key) => {
             return (
@@ -49,7 +57,7 @@ export default function Item() {
                   <>
                     {id === val.id && (
                       <ItemContent className="itemContentInput">
-                        <div className="containerImg">
+                        <div className="imgContent">
                           <img src={imgTenis} alt="" />
                         </div>
                         <div className="textContent">
@@ -70,6 +78,7 @@ export default function Item() {
                             onClick={() => {
                               deleteTenis();
                               setAlterar(false);
+                              setIsVisible(true);
                             }}
                             className="btnInput"
                           >

@@ -8,7 +8,25 @@ export const ContainerProduct = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 2rem;
   /* background-color: red; */
+
+  .btn-add {
+    padding: 1rem 4rem;
+    border: none;
+    background-color: ${corRoxa};
+    color: ${corLaranja};
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: 1rem;
+    transition: background-color, color 0.3s ease-in-out;
+    font-weight: 700;
+
+    &:hover {
+      background-color: ${corLaranja};
+      color: #fff;
+    }
+  }
 `;
 
 export const ContainerItem = styled.div`
@@ -27,16 +45,32 @@ export const ContainerItem = styled.div`
     justify-content: center;
     align-items: center;
     min-width: 20rem;
-    max-width: 22.7rem;
+    max-width: 22.5rem;
     flex: 1;
     margin-top: 3rem;
     margin-bottom: 3rem;
     padding: 1rem;
-    margin-left: 0.2rem;
+    margin-left: 0.4rem;
     position: relative;
+    border: 2px solid ${corRoxa};
+    border-radius: 0.5rem;
+    transition: background-color, transform 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      transform: scale(1.02);
+      background-color: #fff;
+
+      h1 {
+        opacity: 1;
+      }
+    }
     h1 {
       margin: 0;
       font-size: 2.5rem;
+      color: ${corLaranja};
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in-out;
       /* background-color: red; */
     }
 
@@ -65,11 +99,25 @@ export const ContainerItem = styled.div`
   .itemContentInput {
     order: 2;
     position: relative;
+    /* background-color: red; */
+    max-width: 20rem;
+    margin-bottom: 2rem;
+    border: 2px solid ${corRoxa};
+    border-radius: 0.5rem;
+
+    .imgContent {
+      width: 100%;
+      /* background-color: yellow; */
+      img {
+        width: 100%;
+      }
+    }
 
     .textContent {
       display: flex;
       flex-direction: column;
       padding: 1rem;
+      /* background-color: blue; */
 
       label {
         font-size: 1.2rem;
@@ -86,11 +134,27 @@ export const ContainerItem = styled.div`
         padding: 0.5rem 0;
         font-size: 1rem;
         padding-left: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid ${corRoxa};
+
+        &:focus {
+          outline: none;
+          border-color: ${corRoxa};
+          box-shadow: 0 0 0.2rem ${corRoxa};
+        }
       }
     }
-  }
-  .itemButtonsInput {
-    margin-top: 1rem;
+    .itemButtonsInput {
+      margin: 1rem 0;
+      .btnInput {
+        padding: 0.5rem 2rem;
+        border-radius: 0.8rem;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      max-width: 30rem;
+    }
   }
 `;
 export const ItemContent = styled.div`

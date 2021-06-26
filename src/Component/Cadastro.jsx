@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { CadastroModal } from "./style/CadastroModal";
 import Axios from "axios";
 
-export default function Cadastro() {
+export default function Cadastro(props) {
   const [nome, setNome] = useState("");
   const [img, setImg] = useState("");
   const [valor, setValor] = useState(0);
@@ -29,42 +30,54 @@ export default function Cadastro() {
   };
 
   return (
-    <div className="containerCadastro">
-      <label>Nome</label>
-      <input
-        onChange={(e) => {
-          setNome(e.target.value);
-        }}
-        type="text"
-      />
-      <label>Img</label>
-      <input
-        onChange={(e) => {
-          setImg(e.target.value);
-        }}
-        type="text"
-      />
-      <label>Valor Antigo</label>
-      <input
-        onChange={(e) => {
-          setValor(e.target.value);
-        }}
-        type="text"
-      />
-      <label>Valor Novo</label>
-      <input
-        type="text"
-        onChange={(e) => {
-          setNovoValor(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          addTenis();
-        }}
-      >
-        Enviar
-      </button>
-    </div>
+    <>
+      {props.isOpen ? (
+        <CadastroModal>
+          <div className="containerCadastro">
+            <button
+              onClick={() => props.setIsOpen(false)}
+              className="btn-close"
+            >
+              X
+            </button>
+            <label>Nome</label>
+            <input
+              onChange={(e) => {
+                setNome(e.target.value);
+              }}
+              type="text"
+            />
+            <label>Img</label>
+            <input
+              onChange={(e) => {
+                setImg(e.target.value);
+              }}
+              type="file"
+            />
+            <label>Valor Antigo</label>
+            <input
+              onChange={(e) => {
+                setValor(e.target.value);
+              }}
+              type="text"
+            />
+            <label>Valor Novo</label>
+            <input
+              type="text"
+              onChange={(e) => {
+                setNovoValor(e.target.value);
+              }}
+            />
+            <button
+              onClick={() => {
+                addTenis();
+              }}
+            >
+              Enviar
+            </button>
+          </div>
+        </CadastroModal>
+      ) : null}
+    </>
   );
 }
