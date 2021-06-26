@@ -10,7 +10,6 @@ export const ContentHeader = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 8%;
-  /* background-color: green; */
 `;
 export const Logo = styled.div`
   height: 100%;
@@ -19,7 +18,6 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: yellow; */
 
   img {
     width: 100%;
@@ -27,7 +25,6 @@ export const Logo = styled.div`
 `;
 
 export const ContainerUser = styled.div`
-  /* background-color: red; */
   height: 100%;
   display: flex;
   align-items: center;
@@ -41,7 +38,6 @@ export const ContainerUser = styled.div`
 
   .welcome {
     flex: 1;
-    /* background-color: yellow; */
     height: 100%;
     justify-content: flex-end;
     padding-bottom: 0.6rem;
@@ -49,7 +45,6 @@ export const ContainerUser = styled.div`
   }
   .name {
     flex: 2;
-    /* background-color: green; */
     height: 100%;
     opacity: 0.9;
   }

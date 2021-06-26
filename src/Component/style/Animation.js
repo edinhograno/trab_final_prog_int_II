@@ -11,19 +11,17 @@ export const ContainerAnimation = styled.div`
   .containerAnimationRocket {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -0.3rem;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: flex-end;
     pointer-events: none;
-
-    @media only screen and (min-width: 768px) {
-      max-width: 40rem;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+    z-index: 1;
+    max-width: 40rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .containerAnimationArrow {

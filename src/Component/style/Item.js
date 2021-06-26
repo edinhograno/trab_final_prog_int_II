@@ -8,23 +8,30 @@ export const ContainerProduct = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 3rem;
   /* background-color: red; */
 
   .btn-add {
-    padding: 1rem 4rem;
+    height: 3rem;
+    max-width: 35rem;
+    width: 100%;
     border: none;
-    background-color: ${corRoxa};
-    color: ${corLaranja};
+    background-color: ${corLaranja};
+    color: #fff;
     cursor: pointer;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     font-size: 1rem;
     transition: background-color, color 0.3s ease-in-out;
     font-weight: 700;
+    z-index: 2;
 
     &:hover {
-      background-color: ${corLaranja};
+      background-color: ${corRoxa};
       color: #fff;
+    }
+
+    @media only screen and (min-width: 530px) {
+      border-radius: 1.2rem;
+      margin-left: 2.2rem;
     }
   }
 `;
