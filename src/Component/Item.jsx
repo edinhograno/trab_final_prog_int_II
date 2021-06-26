@@ -42,16 +42,18 @@ export default function Item() {
   };
 
   const updateTenis = () => {
-    Axios.put(`http://localhost:3001/update?id=${id}`, {
-      nome: nome,
-      valor: valor,
-      novoValor: novoValor,
-    }).then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (nome !== null && valor !== null){
+      Axios.put(`http://localhost:3001/update?id=${id}`, {
+        nome: nome,
+        valor: valor,
+        novoValor: novoValor,
+      }).then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (

@@ -32,6 +32,26 @@ app.post("/create", (req, res) => {
   );
 });
 
+app.post("/createUser", (req, res) => {
+  const username = req.body.username;
+  const userlastname = req.body.userlastname;
+  const email = req.body.email;
+  const password = req.body.password;
+  const confirmpassword = req.body.confirmpassword;
+
+  db.query(
+    "INSERT INTO users (username, userlastname, email, password, confirmpassword) VALUES (?,?,?,?,?)",
+    [username, userlastname, email, password, confirmpassword],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Tenis Cadastrado");
+      }
+    }
+  );
+});
+
 app.get("/tenis", (req, res) => {
   db.query("SELECT * FROM tenis", (err, result) => {
     if (err) {
