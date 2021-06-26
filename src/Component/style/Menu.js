@@ -18,10 +18,6 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-=======
-  /* background-color: yellow; */
->>>>>>> e44948eec1e6d62d86910e9cfedf644765ee4eaa
 
   img {
     width: 100%;
@@ -29,10 +25,6 @@ export const Logo = styled.div`
 `;
 
 export const ContainerUser = styled.div`
-<<<<<<< HEAD
-=======
-  /* background-color: red; */
->>>>>>> e44948eec1e6d62d86910e9cfedf644765ee4eaa
   height: 100%;
   display: flex;
   align-items: center;
