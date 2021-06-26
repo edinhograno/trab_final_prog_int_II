@@ -17,6 +17,10 @@ export default function Item() {
   const [id, setId] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
+  const [nome, setNome] = useState("");
+  const [valor, setValor] = useState(0);
+  const [novoValor, setNovoValor] = useState(0);
+
   useEffect(() => {
     Axios.get("http://localhost:3001/tenis")
       .then((response) => {
@@ -30,6 +34,19 @@ export default function Item() {
   const deleteTenis = () => {
     Axios.delete(`http://localhost:3001/delete?id=${id}`)
       .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const updateTenis = () => {
+    Axios.put(`http://localhost:3001/update?id=${id}`, {
+      nome: nome,
+      valor: valor,
+      novoValor: novoValor,
+    }).then((res) => {
         console.log(res);
       })
       .catch((err) => {
@@ -61,18 +78,30 @@ export default function Item() {
                         </div>
                         <div className="textContent">
                           <label htmlFor="">Novo Nome</label>
-                          <input type="text" placeholder={val.nome} />
+                          <input type="text" placeholder={val.nome}
+                            onChange={(e) => {
+                              setNome(e.target.value);
+                            }} />
                           <label htmlFor="">Novo Valor</label>
                           <input
                             type="number"
                             name=""
                             id=""
                             placeholder={val.valorNovo}
+                            onChange={(e) => {
+                              setNovoValor(e.target.value);
+                              setValor(val.valorNovo);
+                            }}
                           />
                         </div>
 
                         <ItemButtons className="itemButtonsInput">
-                          <BtnItem className="btnInput">Editar</BtnItem>
+                          <BtnItem className="btnInput"
+                          onClick={() => {
+                            updateTenis();
+                            setAlterar(false);
+                            setIsVisible(true);
+                          }}>Editar</BtnItem>
                           <BtnItem
                             onClick={() => {
                               deleteTenis();
