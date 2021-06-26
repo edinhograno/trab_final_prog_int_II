@@ -7,7 +7,7 @@ import {
   BtnItem,
   ContainerProduct,
 } from "../Component/style/Item";
-import Cadastro from "./Cadastro";
+import CadastroItem from "./CadastroItem";
 import Axios from "axios";
 
 export default function Item() {
@@ -15,7 +15,8 @@ export default function Item() {
   const [isVisible, setIsVisible] = useState(true);
   const [tenis, setTenis] = useState([]);
   const [id, setId] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+  // trocar o isopen para false
 
   useEffect(() => {
     Axios.get("http://localhost:3001/tenis")
@@ -45,7 +46,7 @@ export default function Item() {
             <button className="btn-add" onClick={() => setIsOpen(true)}>
               Adicionar Produto
             </button>
-            <Cadastro isOpen={isOpen} setIsOpen={setIsOpen} />
+            <CadastroItem isOpen={isOpen} setIsOpen={setIsOpen} />
           </>
         ) : null}
         <ContainerItem>
