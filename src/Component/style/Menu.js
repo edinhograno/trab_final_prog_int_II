@@ -20,36 +20,14 @@ export const Logo = styled.div`
   justify-content: center;
   align-items: center;
   /* background-color: yellow; */
-  margin-left: 1rem;
 
   img {
     width: 100%;
   }
 `;
-export const BtnContentHeader = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  letter-spacing: 0.3rem;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #fff;
-  opacity: 0.5;
-  height: 100%;
-  width: 10rem;
-  cursor: pointer;
-  z-index: 2;
-  transition: opacity 0.3 ease-in-out;
-
-  &:hover {
-    opacity: 1;
-  }
-`;
 
 export const ContainerUser = styled.div`
   /* background-color: red; */
-  width: 30%;
   height: 100%;
   display: flex;
   align-items: center;

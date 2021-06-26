@@ -168,7 +168,7 @@ export const NewAccountLogin = styled.div`
   justify-content: center;
   align-items: center;
 
-  a {
+  .btn-account {
     color: ${corRoxa};
     opacity: 0.5;
     font-weight: bold;

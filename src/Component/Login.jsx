@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   LoginPage,
   LoginInfo,
@@ -37,27 +38,11 @@ export default function Login() {
         </LoginButtons>
 
         <NewAccountLogin className="w-80">
-          <p>Criar uma conta</p>
-          {/* transformar esse p em um LINK */}
+          <Link className="btn-account" to="/cadastro">
+            Criar uma conta
+          </Link>
         </NewAccountLogin>
       </LoginInfo>
-      {/* <BtnVoltar>
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "#fff",
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
-          <IoIosArrowDropleft className="icon" />
-          Voltar
-        </Link>
-      </BtnVoltar> */}
     </LoginPage>
   );
 }
