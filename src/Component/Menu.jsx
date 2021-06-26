@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  ContentHeader,
-  Logo,
-  BtnContentHeader,
-  ContainerUser,
-} from "../Component/style/Menu";
+import { ContentHeader, Logo, ContainerUser } from "../Component/style/Menu";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.svg";
 

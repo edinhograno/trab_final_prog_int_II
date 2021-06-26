@@ -8,7 +8,7 @@ export const ContainerProduct = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 3rem;
   /* background-color: red; */
 
   .btn-add {

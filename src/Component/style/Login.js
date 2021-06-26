@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 const corLaranja = "#ff6700";
 const corRoxa = "#4e0093";

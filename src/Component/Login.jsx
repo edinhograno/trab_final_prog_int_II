@@ -2,17 +2,13 @@ import React from "react";
 import {
   LoginPage,
   LoginInfo,
-  BtnVoltar,
   LoginDados,
   BtnLogin,
   LoginSocial,
   NewAccountLogin,
   LoginButtons,
 } from "../Component/style/Login";
-import { Link } from "react-router-dom";
 import Menu from "../Component/Menu";
-import { BtnItem } from "./style/Item";
-import { IoIosArrowDropleft } from "react-icons/io";
 
 export default function Login() {
   return (
@@ -41,7 +37,8 @@ export default function Login() {
         </LoginButtons>
 
         <NewAccountLogin className="w-80">
-          <a href="#">Criar uma conta</a>
+          <p>Criar uma conta</p>
+          {/* transformar esse p em um LINK */}
         </NewAccountLogin>
       </LoginInfo>
       {/* <BtnVoltar>

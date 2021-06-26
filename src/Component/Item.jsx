@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import imgTenis from "../img/tenis.png";
 import {
   ContainerItem,
-  ImgItem,
   ItemContent,
   ItemButtons,
   BtnItem,
@@ -50,7 +49,7 @@ export default function Item() {
           </>
         ) : null}
         <ContainerItem>
-          {tenis.map((val, key) => {
+          {tenis.map((val) => {
             return (
               <>
                 {alterar ? (
