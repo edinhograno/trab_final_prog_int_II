@@ -44,7 +44,7 @@ export default function Login() {
           <a href="#">Criar uma conta</a>
         </NewAccountLogin>
       </LoginInfo>
-      <BtnVoltar>
+      {/* <BtnVoltar>
         <Link
           to="/"
           style={{
@@ -60,7 +60,7 @@ export default function Login() {
           <IoIosArrowDropleft className="icon" />
           Voltar
         </Link>
-      </BtnVoltar>
+      </BtnVoltar> */}
     </LoginPage>
   );
 }

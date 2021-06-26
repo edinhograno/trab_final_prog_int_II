@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import tenis from "../img/tenis.png";
+import React, { useState, useEffect } from "react";
+import imgTenis from "../img/tenis.png";
 import {
   ContainerItem,
   ImgItem,
@@ -8,61 +8,117 @@ import {
   BtnItem,
   ContainerProduct,
 } from "../Component/style/Item";
+import Cadastro from "./Cadastro";
+import Axios from "axios";
 
 export default function Item() {
   const [alterar, setAlterar] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [tenis, setTenis] = useState([]);
+  const [id, setId] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/tenis")
+      .then((response) => {
+        setTenis(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  const deleteTenis = () => {
+    Axios.delete(`http://localhost:3001/delete?id=${id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
       <ContainerProduct className="w-1200">
+        {isVisible ? <Cadastro /> : null}
         <ContainerItem>
-          <ImgItem>
-            <img src={tenis} alt="" />
-          </ImgItem>
-          {alterar ? (
-            <ItemContent className="itemContentInput">
-              <div className="textContent">
-                <label htmlFor="">Novo Nome</label>
-                <input type="text" placeholder="Tênis Adidas" />
-                <label htmlFor="">Novo Valor</label>
-                <input type="number" name="" id="" placeholder="R$ 399,90" />
-              </div>
+          {tenis.map((val, key) => {
+            return (
+              <>
+                {alterar ? (
+                  <>
+                    {id === val.id && (
+                      <ItemContent className="itemContentInput">
+                        <div className="containerImg">
+                          <img src={imgTenis} alt="" />
+                        </div>
+                        <div className="textContent">
+                          <label htmlFor="">Novo Nome</label>
+                          <input type="text" placeholder={val.nome} />
+                          <label htmlFor="">Novo Valor</label>
+                          <input
+                            type="number"
+                            name=""
+                            id=""
+                            placeholder={val.valorNovo}
+                          />
+                        </div>
 
-              <ItemButtons className="itemButtonsInput">
-                <BtnItem className="btnInput">Editar</BtnItem>
-                <BtnItem className="btnInput">Deletar</BtnItem>
-                <BtnItem
-                  onClick={() => {
-                    setAlterar(false);
-                  }}
-                  className="btnInput"
-                >
-                  Voltar
-                </BtnItem>
-              </ItemButtons>
-            </ItemContent>
-          ) : (
-            <>
-              <ItemContent>
-                <h1>Tênis Adidas</h1>
-                <div className="preco">
-                  <p className="de">R$ 599,90</p>
-                  <p>
-                    <span>R$</span> 399,90
-                  </p>
-                </div>
-              </ItemContent>
-              <ItemButtons>
-                <BtnItem
-                  onClick={() => {
-                    setAlterar(true);
-                  }}
-                >
-                  Alterar
-                </BtnItem>
-              </ItemButtons>
-            </>
-          )}
+                        <ItemButtons className="itemButtonsInput">
+                          <BtnItem className="btnInput">Editar</BtnItem>
+                          <BtnItem
+                            onClick={() => {
+                              deleteTenis();
+                              setAlterar(false);
+                            }}
+                            className="btnInput"
+                          >
+                            Deletar
+                          </BtnItem>
+                          <BtnItem
+                            onClick={() => {
+                              setAlterar(false);
+                              setIsVisible(true);
+                            }}
+                            className="btnInput"
+                          >
+                            Voltar
+                          </BtnItem>
+                        </ItemButtons>
+                      </ItemContent>
+                    )}
+                  </>
+                ) : (
+                  <div className="item">
+                    <h1>{val.nome}</h1>
+                    <div className="containerImg">
+                      <img src={imgTenis} alt="" />
+                    </div>
+                    <ItemContent>
+                      <div className="preco">
+                        <p className="de">R$ {val.valorAntigo}</p>
+                        <p>
+                          <span>R$</span> {val.valorNovo}
+                        </p>
+                      </div>
+                    </ItemContent>
+                    <ItemButtons>
+                      <BtnItem
+                        onClick={() => {
+                          setAlterar(true);
+                          setId(val.id);
+                          console.log(val.id);
+                          setIsVisible(false);
+                        }}
+                      >
+                        Alterar
+                      </BtnItem>
+                    </ItemButtons>
+                  </div>
+                )}
+              </>
+            );
+          })}
         </ContainerItem>
       </ContainerProduct>
     </>

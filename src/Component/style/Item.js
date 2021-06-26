@@ -7,16 +7,49 @@ export const ContainerProduct = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  /* background-color: red; */
 `;
 
 export const ContainerItem = styled.div`
   margin-top: 2.5rem;
-  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 25rem;
+  height: 50%;
+  /* max-width: 25rem; */
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 20rem;
+    max-width: 22.7rem;
+    flex: 1;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    margin-left: 0.2rem;
+    position: relative;
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      /* background-color: red; */
+    }
+
+    .containerImg {
+      display: flex;
+      justify-content: center;
+      /* background-color: red; */
+      width: 100%;
+      img {
+        max-height: 10rem;
+      }
+    }
+  }
 
   button {
     cursor: pointer;
@@ -32,12 +65,10 @@ export const ContainerItem = styled.div`
   .itemContentInput {
     order: 2;
     position: relative;
-    /* background-color: red; */
 
     .textContent {
       display: flex;
       flex-direction: column;
-      /* background-color: yellow; */
       padding: 1rem;
 
       label {
@@ -62,45 +93,21 @@ export const ContainerItem = styled.div`
     margin-top: 1rem;
   }
 `;
-export const ImgItem = styled.div`
-  height: 45vh;
-  width: 100%;
-  /* background-color: blue; */
-  order: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    /* background-color: black; */
-    width: 60%;
-    transform: rotate(-45deg);
-    max-width: 20rem;
-  }
-`;
 export const ItemContent = styled.div`
-  /* display: none; */
   color: ${corRoxa};
-  position: absolute;
   width: 100%;
   height: 80%;
-  /* background-color: green; */
+  /* background-color: yellow; */
   order: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  h1,
   .preco {
     padding: 1rem;
   }
-  h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    /* background-color: red; */
-  }
+
   .preco {
-    /* background-color: yellow; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -111,21 +118,20 @@ export const ItemContent = styled.div`
     color: #c9c9c9;
   }
   p {
-    font-size: 1.5rem;
-    /* background-color: blue; */
+    font-size: 2rem;
     margin: 0;
     font-weight: 500;
 
     span {
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   }
 `;
 export const ItemButtons = styled.div`
-  /* background-color: yellow; */
+  width: 100%;
+  /* background-color: purple; */
   order: 3;
-  padding: 0 1rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -138,7 +144,7 @@ export const ItemButtons = styled.div`
   }
 `;
 export const BtnItem = styled.button`
-  padding: 0.8rem 3rem;
+  padding: 1rem 4rem;
   border: none;
   background-color: ${corRoxa};
   color: ${corLaranja};

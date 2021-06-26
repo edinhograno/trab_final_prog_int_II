@@ -41,12 +41,11 @@ export const ContainerAnimation = styled.div`
     width: 100%;
     height: 40%;
     position: absolute;
-    bottom: -1%;
+    bottom: -0.1rem;
 
     @media only screen and (min-width: 575px) {
       height: 100%;
       width: 100%;
-      bottom: -3%;
     }
   }
 `;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ContainerAnimation } from "./style/Animation.js";
+import { ContainerAnimation, ContainerUser } from "./style/Animation.js";
 import Lottie from "react-lottie";
 import animationData from "../animation.json";
 import animationArrow from "../animationArrow.json";

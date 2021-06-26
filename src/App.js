@@ -10,8 +10,8 @@ function App() {
       <GlobalStyle />
       <Menu />
       <Switch>
-        <Route path="/" exact component={InitialPage} />
-        <Route path="/login" component={LoginPage} />
+        <Route path="/" exact component={LoginPage} />
+        <Route path="/initial" component={InitialPage} />
       </Switch>
     </Router>
   );
