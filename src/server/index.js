@@ -43,11 +43,13 @@ app.get("/tenis", (req, res) => {
 });
 
 app.put("/update", (req, res) => {
-  const id = req.body.id;
-  const salario = req.body.salario;
+  const id = req.query.id;
+  const nome = req.body.nome;
+  const valorAntigo = req.body.valor;
+  const valorNovo = req.body.novoValor;
   db.query(
-    "UPDATE SET employees salario = ? WHERE id = ?",
-    [salario, id],
+    "UPDATE tenis SET nome = ?, valorAntigo = ?, valorNovo = ? WHERE id = ?",
+    [nome, valorAntigo, valorNovo, id],
     (err, result) => {
       if (err) {
         console.log(err);

@@ -9,7 +9,10 @@ export default function InitialPage() {
   useEffect(() => {
     setIsName(true);
   });
+<<<<<<< HEAD
 
+=======
+>>>>>>> e44948eec1e6d62d86910e9cfedf644765ee4eaa
   return (
     <>
       <Menu isName={isName} setIsName={setIsName} />
