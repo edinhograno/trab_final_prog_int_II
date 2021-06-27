@@ -62,6 +62,25 @@ app.get("/tenis", (req, res) => {
   });
 });
 
+app.post("/user", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  db.query(
+    "SELECT * FROM users where email = ? and password = ?",
+    [email, password],
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+      if (result.length > 0) {
+        res.send(result);
+      } else {
+        res.send({ message: "Usuário ou senha inválidos" });
+      }
+    }
+  );
+});
+
 app.put("/update", (req, res) => {
   const id = req.query.id;
   const nome = req.body.nome;

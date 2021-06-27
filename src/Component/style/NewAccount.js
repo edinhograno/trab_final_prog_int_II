@@ -102,10 +102,14 @@ export const Account = styled.div`
           color: ${corRoxa};
           pointer-events: none;
           position: absolute;
-          transform: translate(0, 1rem) scale(1.2);
+          transform: translate(0, -0.5rem) scale(1);
           transform-origin: top left;
           transition: all 0.2s ease-out;
           background-color: #fff;
+
+          .asterisco {
+            color: #ff0000;
+          }
         }
 
         button {
@@ -133,10 +137,6 @@ export const Account = styled.div`
             opacity: 1;
           }
         }
-      }
-
-      .content:focus-within label {
-        transform: translate(0, -0.5rem) scale(1);
       }
     }
   }

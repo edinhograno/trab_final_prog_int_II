@@ -3,15 +3,15 @@ import Menu from "../Component/Menu";
 import Animation from "../Component/Animation";
 import Item from "../Component/Item";
 
-export default function InitialPage() {
+export default function InitialPage(props) {
   const [isName, setIsName] = useState(false);
 
   useEffect(() => {
     setIsName(true);
-  });
+  }, []);
   return (
     <>
-      <Menu isName={isName} setIsName={setIsName} />
+      <Menu nome={props.nome} isName={isName} setIsName={setIsName} />
       <Animation />
       <Item />
     </>

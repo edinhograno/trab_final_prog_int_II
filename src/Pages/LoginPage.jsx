@@ -6,7 +6,12 @@ export default function LoginPage(props) {
   return (
     <>
       <Menu />
-      <Login />
+      <Login
+        nome={props.nome}
+        isLogged={props.isLogged}
+        setNome={props.setNome}
+        setIsLogged={props.setIsLogged}
+      />
     </>
   );
 }

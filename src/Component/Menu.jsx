@@ -11,7 +11,7 @@ export default function Menu(props) {
       {props.isName ? (
         <ContainerUser>
           <p className="welcome">Bem-Vindo,</p>
-          <h1 className="name">Edinho</h1>
+          <h1 className="name">{props.nome}</h1>
         </ContainerUser>
       ) : null}
     </ContentHeader>

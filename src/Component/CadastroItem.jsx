@@ -44,12 +44,14 @@ export default function CadastroItem(props) {
             </button>
             <div className="items">
               <div className="itemModal">
-                <label>Nome</label>
+                <label htmlFor="nome">Nome</label>
                 <input
                   onChange={(e) => {
                     setNome(e.target.value);
                   }}
                   type="text"
+                  id="nome"
+                  required
                 />
               </div>
               <div className="itemModalImg">
@@ -63,24 +65,29 @@ export default function CadastroItem(props) {
                   }}
                   type="file"
                   id="arquivo"
+                  required
                 />
               </div>
               <div className="itemModal">
-                <label>Valor Antigo</label>
+                <label htmlFor="valorAntigo">Valor Antigo</label>
                 <input
                   onChange={(e) => {
                     setValor(e.target.value);
                   }}
                   type="text"
+                  id="valorAntigo"
+                  required
                 />
               </div>
               <div className="itemModal">
-                <label>Valor Novo</label>
+                <label htmlFor="valorNovo">Valor Novo</label>
                 <input
                   type="text"
                   onChange={(e) => {
                     setNovoValor(e.target.value);
                   }}
+                  id="valorNovo"
+                  required
                 />
               </div>
               <div className="itemModal">

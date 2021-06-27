@@ -69,7 +69,7 @@ export const CadastroModal = styled.div`
           color: ${corRoxa};
           pointer-events: none;
           position: absolute;
-          transform: translate(0, 1rem) scale(1.2);
+          transform: translate(0, -0.5rem) scale(1);
           transform-origin: top left;
           transition: all 0.2s ease-out;
           background-color: #fff;
@@ -113,6 +113,7 @@ export const CadastroModal = styled.div`
         border: 0.063rem solid #c9c9c9;
         border-radius: 0.25rem;
         font-size: 1rem;
+        margin-bottom: 1rem;
         input {
           display: none;
         }
@@ -141,10 +142,6 @@ export const CadastroModal = styled.div`
           }
         }
       }
-    }
-
-    .itemModal:focus-within label {
-      transform: translate(0, -0.5rem) scale(1);
     }
   }
 `;

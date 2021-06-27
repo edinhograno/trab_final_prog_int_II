@@ -112,13 +112,9 @@ export const LoginDados = styled.div`
     color: #999;
     pointer-events: none;
     position: absolute;
-    transform: translate(0, 1.625rem) scale(1);
+    transform: translate(0, 0.5rem) scale(0.75);
     transform-origin: top left;
     transition: all 0.2s ease-out;
-  }
-  .email:focus-within label,
-  .password:focus-within label {
-    transform: translate(0, 0.5rem) scale(0.75);
   }
 `;
 
