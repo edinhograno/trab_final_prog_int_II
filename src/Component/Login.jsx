@@ -22,7 +22,6 @@ export default function Login(props) {
       password: password,
     })
       .then((response) => {
-        console.log(response.data);
         if (response.data.message) {
           window.alert("Usuário ou senha inválidos");
         } else {

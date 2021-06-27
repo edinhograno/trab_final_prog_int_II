@@ -9,9 +9,15 @@ export default function InitialPage(props) {
   useEffect(() => {
     setIsName(true);
   }, []);
+
   return (
     <>
-      <Menu nome={props.nome} isName={isName} setIsName={setIsName} />
+      <Menu
+        setIsLogged={props.setIsLogged}
+        nome={props.nome}
+        isName={isName}
+        setIsName={setIsName}
+      />
       <Animation />
       <Item />
     </>

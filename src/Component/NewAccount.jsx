@@ -4,7 +4,7 @@ import logo from "../img/logo.svg";
 import { Account } from "./style/NewAccount";
 import Axios from "axios";
 
-export default function NewAccount() {
+export default function NewAccount(props) {
   const [user, setUser] = useState([]);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -32,6 +32,8 @@ export default function NewAccount() {
           },
         ]);
       });
+      window.alert("Conta criada com sucesso!");
+      props.setIsCreated(true);
     } else {
       window.alert("Senhas não conferem!");
     }
@@ -97,7 +99,7 @@ export default function NewAccount() {
             <div className="container-dados">
               <div className="content">
                 <input
-                  minlength="8"
+                  minLength="8"
                   required
                   type="text"
                   name="password"
@@ -133,15 +135,7 @@ export default function NewAccount() {
                 </Link>
               </div>
               <div className="content">
-                <button
-                  onClick={() => {
-                    addUser();
-                    console.log(name);
-                    console.log(user);
-                  }}
-                >
-                  Criar Conta
-                </button>
+                <button onClick={addUser}>Criar Conta</button>
               </div>
             </div>
           </div>

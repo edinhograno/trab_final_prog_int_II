@@ -29,6 +29,24 @@ export const ContainerUser = styled.div`
   display: flex;
   align-items: center;
 
+  .logout-icon {
+    align-self: flex-end;
+    font-size: 2rem;
+    color: #fff;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #4e0093;
+    }
+  }
+
   .welcome,
   .name {
     display: flex;

@@ -12,6 +12,7 @@ import CadastroPage from "./Pages/CadastroPage";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
+  const [isCreated, setIsCreated] = useState(false);
   const [nome, setNome] = useState("");
 
   return (
@@ -31,10 +32,14 @@ function App() {
           )}
         </Route>
         <Route path="/initial">
-          <InitialPage nome={nome} />
+          <InitialPage setIsLogged={setIsLogged} nome={nome} />
         </Route>
         <Route path="/cadastro">
-          <CadastroPage />
+          {isCreated ? (
+            <Redirect to="/" />
+          ) : (
+            <CadastroPage setIsCreated={setIsCreated} />
+          )}
         </Route>
       </Switch>
     </Router>
