@@ -52,7 +52,12 @@ export const LoginInfo = styled.div`
   height: 80%;
   border-radius: 0.5rem;
   background-color: #fff;
-  box-shadow: -0.2rem 0.2rem 1.5rem #000;
+  box-shadow: 0rem 0rem 0.5rem #000;
+  transition: box-shadow 1.5s ease-in-out;
+
+  &:hover {
+    box-shadow: -0.2rem 0.2rem 2.5rem #000;
+  }
 
   .w-80 {
     width: 80%;
