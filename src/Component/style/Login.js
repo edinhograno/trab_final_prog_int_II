@@ -47,7 +47,6 @@ export const LoginInfo = styled.div`
   max-width: 30rem;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   width: 55%;
   height: 80%;
   border-radius: 0.5rem;
@@ -63,12 +62,25 @@ export const LoginInfo = styled.div`
     width: 80%;
   }
 
-  h1 {
-    color: ${corRoxa};
-    font-size: 3rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.6rem;
+  .titulo {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin: 0;
+      color: ${corRoxa};
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+
+    small {
+      color: ${corRoxa};
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
   }
 `;
 

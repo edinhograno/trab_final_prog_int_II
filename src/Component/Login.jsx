@@ -39,7 +39,10 @@ export default function Login(props) {
     <LoginPage>
       <Menu />
       <LoginInfo>
-        <h1>Login</h1>
+        <div className="titulo">
+          <h1>Fazer login</h1>
+          <small>Painel administrativo</small>
+        </div>
         <LoginDados className="w-80">
           <div className="email">
             <input
