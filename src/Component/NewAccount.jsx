@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../img/logo.svg";
 import { Account } from "./style/NewAccount";
 import Axios from "axios";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export default function NewAccount(props) {
   const [user, setUser] = useState([]);
@@ -11,6 +12,7 @@ export default function NewAccount(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isPass, setIsPass] = useState(true);
 
   const addUser = () => {
     if (password === confirmPassword) {
@@ -101,7 +103,7 @@ export default function NewAccount(props) {
                 <input
                   minLength="8"
                   required
-                  type="text"
+                  type={isPass ? "password" : "text"}
                   name="password"
                   id="password"
                   onChange={(e) => {
@@ -116,7 +118,7 @@ export default function NewAccount(props) {
                 <input
                   minlength="8"
                   required
-                  type="text"
+                  type={isPass ? "password" : "text"}
                   name="confirmpassword"
                   id="confirmpassword"
                   onChange={(e) => {
@@ -127,6 +129,22 @@ export default function NewAccount(props) {
                   Confirmar <span className="asterisco">*</span>
                 </label>
               </div>
+
+              {isPass ? (
+                <button
+                  className="password-btn"
+                  onClick={() => setIsPass(!isPass)}
+                >
+                  <AiFillEyeInvisible className="eye-pass" />
+                </button>
+              ) : (
+                <button
+                  className="password-btn"
+                  onClick={() => setIsPass(!isPass)}
+                >
+                  <AiFillEye className="eye-pass" />
+                </button>
+              )}
             </div>
             <div className="container-dados">
               <div className="content">
@@ -135,7 +153,9 @@ export default function NewAccount(props) {
                 </Link>
               </div>
               <div className="content">
-                <button onClick={addUser}>Criar Conta</button>
+                <button className="btn-create-account" onClick={addUser}>
+                  Criar Conta
+                </button>
               </div>
             </div>
           </div>

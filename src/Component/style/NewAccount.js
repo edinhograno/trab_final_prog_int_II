@@ -62,15 +62,44 @@ export const Account = styled.div`
       .container-dados {
         display: flex;
         flex-wrap: wrap;
+        position: relative;
 
         &:nth-child(2) {
           flex-direction: column;
+        }
+
+        &:nth-child(3) {
+          padding-bottom: 1.2rem;
         }
 
         p {
           margin: -0.4rem 0rem 0 0.8rem;
           color: ${corRoxa};
           font-size: 0.85rem;
+        }
+
+        .password-btn {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 10rem;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          border: none;
+          background-color: transparent;
+
+          .eye-pass {
+            font-size: 1.5rem;
+            color: #c9c9c9;
+            margin-right: 0.2rem;
+            color: #8d61b4;
+          }
+
+          &:after {
+            content: "Mostrar Senha";
+            color: #8d61b4;
+          }
         }
       }
 
@@ -88,6 +117,7 @@ export const Account = styled.div`
           border-radius: 0.25rem;
           background-color: #fff;
           font-size: 1rem;
+          color: #6d6d6d;
 
           &:focus {
             outline: none;
@@ -112,7 +142,7 @@ export const Account = styled.div`
           }
         }
 
-        button {
+        .btn-create-account {
           width: 100%;
           height: 2.5rem;
           border-radius: 2rem;

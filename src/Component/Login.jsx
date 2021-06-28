@@ -11,10 +11,12 @@ import {
 } from "../Component/style/Login";
 import Menu from "../Component/Menu";
 import Axios from "axios";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPass, setIsPass] = useState(true);
 
   const verificaDados = () => {
     Axios.post("http://localhost:3001/user", {
@@ -50,21 +52,31 @@ export default function Login(props) {
           </div>
           <div className="password">
             <input
-              type="text"
+              type={isPass ? "password" : "text"}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             />
+            <button className="password-btn" onClick={() => setIsPass(!isPass)}>
+              {isPass ? (
+                <AiFillEyeInvisible className="eye-pass" />
+              ) : (
+                <AiFillEye className="eye-pass" />
+              )}
+            </button>
+
             <label htmlFor="">Password</label>
           </div>
         </LoginDados>
         <LoginButtons className="w-80">
           <BtnLogin>
-            <button onClick={verificaDados}>Logar</button>
+            <button className="btn-social" onClick={verificaDados}>
+              Logar
+            </button>
           </BtnLogin>
           <LoginSocial>
-            <button>Facebook</button>
-            <button>Google</button>
+            <button className="btn-social">Facebook</button>
+            <button className="btn-social">Google</button>
           </LoginSocial>
         </LoginButtons>
 

@@ -14,7 +14,7 @@ export const LoginPage = styled.div`
 
   background-image: linear-gradient(120deg, ${corRoxa}, ${corLaranja});
 
-  button {
+  .btn-social {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     font-size: 0.8rem;
@@ -94,6 +94,27 @@ export const LoginDados = styled.div`
   justify-content: space-between;
   height: 30%;
 
+  .password {
+    position: relative;
+    .password-btn {
+      position: absolute;
+      right: 0;
+      top: 0.8rem;
+      height: 3rem;
+      width: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: transparent;
+
+      .eye-pass {
+        font-size: 1.5rem;
+        color: #c9c9c9;
+      }
+    }
+  }
+
   .email,
   .password {
     display: flex;
@@ -102,6 +123,7 @@ export const LoginDados = styled.div`
 
   .email input,
   .password input {
+    color: #6d6d6d;
     height: 3.5rem;
     padding: 0.875rem 1rem 0 0.625rem;
     outline: 0;
