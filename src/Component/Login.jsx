@@ -81,7 +81,11 @@ export default function Login(props) {
         </LoginButtons>
 
         <NewAccountLogin className="w-80">
-          <Link className="btn-account" to="/cadastro">
+          <Link
+            onClick={() => props.setIsCreated(false)}
+            className="btn-account"
+            to="/cadastro"
+          >
             Criar uma conta
           </Link>
         </NewAccountLogin>

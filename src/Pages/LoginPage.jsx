@@ -11,6 +11,7 @@ export default function LoginPage(props) {
         isLogged={props.isLogged}
         setNome={props.setNome}
         setIsLogged={props.setIsLogged}
+        setIsCreated={props.setIsCreated}
       />
     </>
   );
