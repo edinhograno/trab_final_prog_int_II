@@ -111,6 +111,7 @@ export const LoginDados = styled.div`
       .eye-pass {
         font-size: 1.5rem;
         color: #c9c9c9;
+        cursor: pointer;
       }
     }
   }

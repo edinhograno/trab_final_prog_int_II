@@ -14,7 +14,6 @@ function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [isCreated, setIsCreated] = useState(false);
   const [nome, setNome] = useState("");
-  console.log(isLogged);
 
   return (
     <Router>

@@ -26,10 +26,6 @@ export const Account = styled.div`
 
     .logo {
       position: absolute;
-      /* width: 22rem;
-      left: -11rem;
-      bottom: 10rem;
-      transform: rotate(-90deg); */
       bottom: 34rem;
       width: 15rem;
       background-color: ${corRoxa};
@@ -72,12 +68,6 @@ export const Account = styled.div`
           padding-bottom: 1.2rem;
         }
 
-        p {
-          margin: -0.4rem 0rem 0 0.8rem;
-          color: ${corRoxa};
-          font-size: 0.85rem;
-        }
-
         .password-btn {
           position: absolute;
           left: 0;
@@ -90,10 +80,11 @@ export const Account = styled.div`
           background-color: transparent;
 
           .eye-pass {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #c9c9c9;
             margin-right: 0.2rem;
             color: #8d61b4;
+            cursor: pointer;
           }
 
           &:after {
@@ -109,7 +100,7 @@ export const Account = styled.div`
         display: flex;
         flex-direction: column;
 
-        input {
+        .input-content {
           height: 2rem;
           padding: 0.875rem 1rem 0 0.625rem;
           outline: 0;
@@ -125,7 +116,7 @@ export const Account = styled.div`
           }
         }
 
-        label {
+        .content-label {
           font-size: 0.8rem;
           padding: 0 0.4rem 0 0.2rem;
           margin-left: 0.1rem;
@@ -162,9 +153,21 @@ export const Account = styled.div`
           font-weight: 500;
           opacity: 0.8;
           transition: opacity 0.3s ease-in-out;
+          font-size: 0.8rem;
+          display: flex;
+          flex-direction: column;
 
           :hover {
             opacity: 1;
+          }
+
+          @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            font-size: 1rem;
+
+            span {
+              margin-left: 0.2rem;
+            }
           }
         }
       }
