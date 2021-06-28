@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const corLaranja = "#ff6700";
+const corLaranjaClaro = "#f5863c";
 const corRoxa = "#4e0093";
 
 export const ContainerProduct = styled.div`
@@ -15,18 +16,20 @@ export const ContainerProduct = styled.div`
     max-width: 35rem;
     width: 100%;
     border: none;
-    background-color: ${corLaranja};
+    background-color: ${corRoxa};
     color: #fff;
+    border: 0.1rem transparent solid;
     cursor: pointer;
     /* border-radius: 1rem; */
     font-size: 1rem;
-    transition: background-color, color 0.3s ease-in-out;
+    transition: background-color, border, color 0.3s ease-in-out;
     font-weight: 700;
     z-index: 2;
 
     &:hover {
-      background-color: ${corRoxa};
-      color: #fff;
+      border: 0.1rem ${corRoxa} solid;
+      background-color: transparent;
+      color: ${corRoxa};
     }
 
     @media only screen and (min-width: 530px) {
@@ -44,6 +47,7 @@ export const ContainerItem = styled.div`
   flex-wrap: wrap;
   width: 100%;
   height: 50%;
+  /* background-color: blue; */
   /* max-width: 25rem; */
 
   .item {
@@ -61,7 +65,7 @@ export const ContainerItem = styled.div`
     position: relative;
     border: 2px solid ${corRoxa};
     border-radius: 0.5rem;
-    transition: background-color, transform 0.3s ease-in-out;
+    transition: color, background-color, transform 0.3s ease-in-out;
     background-color: rgba(0, 0, 0, 0.05);
 
     &:hover {
@@ -70,12 +74,13 @@ export const ContainerItem = styled.div`
 
       h1 {
         opacity: 1;
+        color: ${corLaranja};
       }
     }
     h1 {
       margin: 0;
       font-size: 2.5rem;
-      color: ${corLaranja};
+      color: ${corLaranjaClaro};
       opacity: 0.8;
       transition: opacity 0.3s ease-in-out;
       /* background-color: red; */
@@ -108,9 +113,9 @@ export const ContainerItem = styled.div`
     position: relative;
     /* background-color: red; */
     max-width: 20rem;
-    margin-bottom: 2rem;
     border: 2px solid ${corRoxa};
     border-radius: 0.5rem;
+    margin-bottom: 2rem;
 
     .imgContent {
       width: 100%;
@@ -155,12 +160,8 @@ export const ContainerItem = styled.div`
       margin: 1rem 0;
       .btnInput {
         padding: 0.5rem 2rem;
-        border-radius: 0.8rem;
+        border-radius: 1.2rem;
       }
-    }
-
-    @media only screen and (min-width: 768px) {
-      max-width: 30rem;
     }
   }
 `;
@@ -218,7 +219,7 @@ export const BtnItem = styled.button`
   padding: 1rem 4rem;
   border: none;
   background-color: ${corRoxa};
-  color: ${corLaranja};
-  border-radius: 1rem;
+  color: #fff;
+  border-radius: 1.5rem;
   font-size: 1rem;
 `;

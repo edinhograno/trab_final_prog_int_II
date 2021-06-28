@@ -13,7 +13,7 @@ export const Account = styled.div`
 
   .master-container {
     background-color: #fff;
-    max-width: 50rem;
+    max-width: 38rem;
     min-width: 20rem;
     min-height: 36rem;
     width: 80%;
@@ -26,14 +26,14 @@ export const Account = styled.div`
 
     .logo {
       position: absolute;
-      bottom: 34rem;
-      width: 15rem;
+      bottom: 34.5rem;
+      width: 12rem;
       background-color: ${corRoxa};
 
       @media only screen and (min-width: 500px) {
-        width: 22rem;
-        left: -11rem;
-        bottom: 10rem;
+        width: 15rem;
+        left: -7.5rem;
+        bottom: 7rem;
         transform: rotate(-90deg);
       }
     }
@@ -163,7 +163,6 @@ export const Account = styled.div`
 
           @media only screen and (min-width: 768px) {
             flex-direction: row;
-            font-size: 1rem;
 
             span {
               margin-left: 0.2rem;
