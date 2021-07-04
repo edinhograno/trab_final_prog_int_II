@@ -6,6 +6,8 @@ import {
   BtnItem,
   ContainerProduct,
 } from "../Component/style/Item";
+import { FcCancel } from "react-icons/fc";
+import { BsCheckCircle } from "react-icons/bs";
 import CadastroItem from "./CadastroItem";
 import Axios from "axios";
 
@@ -19,6 +21,9 @@ export default function Item() {
   const [valor, setValor] = useState(0);
   const [novoValor, setNovoValor] = useState(0);
   const [img, setImg] = useState("");
+  const [confirmDelete, setConfirmDelete] = useState("");
+  const [del, setDel] = useState(false);
+  const [update, setUpdate] = useState("");
 
   useEffect(() => {
     Axios.get("http://localhost:3001/tenis")
@@ -31,18 +36,25 @@ export default function Item() {
   }, [isOpen]);
 
   const deleteTenis = () => {
-    Axios.delete(`http://localhost:3001/delete?id=${id}&img=${img}`)
+    if (confirmDelete === "delete") {
+      Axios.delete(`http://localhost:3001/delete?id=${id}&img=${img}`)
 
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      setIsVisible(true);
+      setAlterar(false);
+    } else {
+      setConfirmDelete("Texto digitado inválido");
+    }
   };
 
   const updateTenis = () => {
-    if (nome !== null && valor !== null) {
+    if (nome !== "" && valor !== "") {
       Axios.put(`http://localhost:3001/update?id=${id}`, {
         nome: nome,
         valor: valor,
@@ -54,6 +66,10 @@ export default function Item() {
         .catch((err) => {
           console.log(err);
         });
+      setUpdate("Tênis editado com sucesso!");
+      setDel(false);
+    } else {
+      setUpdate("Digite os valores a serem alterados");
     }
   };
 
@@ -100,23 +116,24 @@ export default function Item() {
                             }}
                           />
                         </div>
+                        <div className="update">
+                          <small>{update}</small>
+                        </div>
 
                         <ItemButtons className="itemButtonsInput">
                           <BtnItem
                             className="btnInput"
                             onClick={() => {
                               updateTenis();
-                              setAlterar(false);
-                              setIsVisible(true);
+                              setDel(false);
                             }}
                           >
                             Editar
                           </BtnItem>
                           <BtnItem
                             onClick={() => {
-                              deleteTenis();
-                              setAlterar(false);
-                              setIsVisible(true);
+                              setDel(true);
+                              setUpdate("");
                             }}
                             className="btnInput"
                           >
@@ -126,12 +143,50 @@ export default function Item() {
                             onClick={() => {
                               setAlterar(false);
                               setIsVisible(true);
+                              setDel(false);
                             }}
                             className="btnInput"
                           >
                             Voltar
                           </BtnItem>
                         </ItemButtons>
+                        {del ? (
+                          <div className="container-confirm-delete">
+                            <div className="confirm-delete">
+                              <label htmlFor="delete">
+                                Escreva <span>delete</span> para deletar o tênis
+                              </label>
+                              <input
+                                type="text"
+                                name="delete"
+                                id="delete"
+                                onChange={(e) => {
+                                  setConfirmDelete(e.target.value);
+                                }}
+                              />
+                            </div>
+                            <div className="confirm-delete-buttons">
+                              <button
+                                className="delete-btn-confirm"
+                                onClick={() => deleteTenis()}
+                              >
+                                <BsCheckCircle />
+                              </button>
+                              <button
+                                className="delete-btn-cancel"
+                                onClick={() => setDel(false)}
+                              >
+                                <FcCancel />
+                              </button>
+                              {confirmDelete !== "delete" &&
+                              confirmDelete !== "" ? (
+                                <small>Texto digitado inválido</small>
+                              ) : confirmDelete === "delete" ? (
+                                <small>Você irá deletar o tênis</small>
+                              ) : null}
+                            </div>
+                          </div>
+                        ) : null}
                       </ItemContent>
                     )}
                   </>

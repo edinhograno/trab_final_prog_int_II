@@ -135,7 +135,6 @@ export const ContainerItem = styled.div`
       display: flex;
       flex-direction: column;
       padding: 1rem;
-      /* background-color: blue; */
 
       label {
         font-size: 1.2rem;
@@ -167,6 +166,76 @@ export const ContainerItem = styled.div`
       .btnInput {
         padding: 0.5rem 2rem;
         border-radius: 1.2rem;
+      }
+    }
+    /* UPDATE */
+    .update {
+      margin-top: -1rem;
+      padding: 0 1rem;
+    }
+    /* CONFIRM DELETE */
+    .container-confirm-delete {
+      /* background-color: green; */
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+
+      .confirm-delete {
+        /* background-color: yellow; */
+        label {
+          font-size: 0.9rem;
+
+          span {
+            color: red;
+            font-style: italic;
+          }
+        }
+        input {
+          width: calc(100% - 0.5rem);
+          padding: 0.5rem 0;
+          font-size: 1rem;
+          padding-left: 0.5rem;
+          border-radius: 0.5rem;
+          border: 1px solid ${corRoxa};
+
+          &:focus {
+            outline: none;
+            border-color: ${corRoxa};
+            box-shadow: 0 0 0.2rem ${corRoxa};
+          }
+        }
+      }
+      .confirm-delete-buttons {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+
+        .delete-btn-confirm,
+        .delete-btn-cancel {
+          background-color: transparent;
+          border: none;
+          opacity: 0.6;
+          transition: opacity 0.2s ease-in-out;
+        }
+        .delete-btn-confirm {
+          font-size: 1.3rem;
+          color: green;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+        .delete-btn-cancel {
+          color: red;
+          font-size: 1.4rem;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      small {
+        margin-bottom: 0.5rem;
       }
     }
   }
