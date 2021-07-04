@@ -24,12 +24,11 @@ export default function Item() {
     Axios.get("http://localhost:3001/tenis")
       .then((response) => {
         setTenis(response.data);
-        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [tenis]);
+  }, [isOpen]);
 
   const deleteTenis = () => {
     Axios.delete(`http://localhost:3001/delete?id=${id}&img=${img}`)
