@@ -4,13 +4,13 @@ const corLaranja = "#ff6700";
 const corRoxa = "#4e0093";
 
 export const LoginPage = styled.div`
-  position: relative;
+  padding: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   background-image: linear-gradient(120deg, ${corRoxa}, ${corLaranja});
 
@@ -48,7 +48,7 @@ export const LoginInfo = styled.div`
   flex-direction: column;
   align-items: center;
   width: 55%;
-  height: 80%;
+  height: auto;
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0rem 0rem 0.5rem #000;
@@ -62,12 +62,20 @@ export const LoginInfo = styled.div`
     width: 80%;
   }
 
+  .espacamento {
+    margin: 1rem 0;
+
+    @media only screen and (min-width: 768px) {
+      margin: 2rem 0;
+    }
+  }
+
   .titulo {
-    margin: 2rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: auto;
 
     h1 {
       margin: 0;
@@ -104,7 +112,7 @@ export const LoginDados = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 30%;
+  height: auto;
 
   .password {
     position: relative;
@@ -156,10 +164,24 @@ export const LoginDados = styled.div`
     transform-origin: top left;
     transition: all 0.2s ease-out;
   }
+
+  .failed-message {
+    margin-top: 0.2rem;
+    color: red;
+    display: flex;
+
+    .icon-failed {
+      margin-right: 0.2rem;
+    }
+  }
 `;
 
 export const LoginButtons = styled.div`
-  height: 50%;
+  height: auto;
+
+  .espacamento-button {
+    margin: 0.5rem 0;
+  }
 `;
 export const BtnLogin = styled.div`
   height: 50%;
@@ -199,7 +221,7 @@ export const LoginSocial = styled.div`
   }
 `;
 export const NewAccountLogin = styled.div`
-  height: 20%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;

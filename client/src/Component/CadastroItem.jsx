@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { CadastroModal } from "./style/CadastroModal";
 import { VscChromeClose } from "react-icons/vsc";
 import { BsCardImage } from "react-icons/bs";
+import { BiErrorAlt } from "react-icons/bi";
+import { BsCheckCircle } from "react-icons/bs";
 import Axios from "axios";
 
 export default function CadastroItem(props) {
@@ -9,18 +11,29 @@ export default function CadastroItem(props) {
   const [img, setImg] = useState("");
   const [valor, setValor] = useState(0);
   const [novoValor, setNovoValor] = useState(0);
+  const [message, setMessage] = useState("");
 
   const addTenis = async () => {
-    const formData = new FormData();
+    if (nome === "" || img === "" || valor === 0 || novoValor === 0) {
+      setMessage("Por favor, preencha todos os campos");
+    } else {
+      const formData = new FormData();
 
-    formData.append("nome", nome);
-    formData.append("img", img);
-    formData.append("valor", valor);
-    formData.append("novoValor", novoValor);
+      formData.append("nome", nome);
+      formData.append("img", img);
+      formData.append("valor", valor);
+      formData.append("novoValor", novoValor);
 
-    await Axios.post("http://localhost:3001/create", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+      await Axios.post("http://localhost:3001/create", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then((response) => {
+          setMessage(response.data.message);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -91,6 +104,18 @@ export default function CadastroItem(props) {
                   Cadastrar
                 </button>
               </div>
+              {message &&
+                (message === "Tenis Cadastrado com sucesso!" ? (
+                  <div className="check-shoes">
+                    <BsCheckCircle className="icon-check" />
+                    <small>{message}</small>
+                  </div>
+                ) : (
+                  <div className="check-shoes check-shoes-failed">
+                    <BiErrorAlt className="icon-check" />
+                    <small>{message}</small>
+                  </div>
+                ))}
             </div>
           </div>
         </CadastroModal>

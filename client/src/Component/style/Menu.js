@@ -14,6 +14,7 @@ export const ContentHeader = styled.div`
 export const Logo = styled.div`
   height: 100%;
   max-width: 10rem;
+  padding: 0 1.5rem;
   width: 30%;
   display: flex;
   justify-content: center;

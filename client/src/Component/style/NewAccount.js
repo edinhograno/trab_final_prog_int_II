@@ -42,9 +42,35 @@ export const Account = styled.div`
       width: 80%;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
       h1 {
+        margin: 0;
         font-weight: 400;
         color: ${corRoxa};
+      }
+
+      .failed-message {
+        color: red;
+        display: flex;
+
+        .account-error-message {
+          margin-left: 0.2rem;
+        }
+      }
+      .success-message {
+        display: flex;
+        color: #178509;
+
+        .btn-success-message {
+          font-weight: 600;
+          color: #178509;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
     }
 

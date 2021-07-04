@@ -143,5 +143,15 @@ export const CadastroModal = styled.div`
         }
       }
     }
+    .icon-check {
+      padding: 0 0.2rem;
+    }
+    .check-shoes {
+      color: #178509;
+      display: flex;
+    }
+    .check-shoes-failed {
+      color: red;
+    }
   }
 `;

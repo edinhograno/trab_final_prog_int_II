@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { BiErrorAlt } from "react-icons/bi";
+import { BsCheckCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.svg";
 import { Account } from "./style/NewAccount";
@@ -13,6 +15,8 @@ export default function NewAccount(props) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isPass, setIsPass] = useState(true);
+  const [identificator, setIdentificator] = useState();
+  const [message, setMessage] = useState("");
 
   const addUser = () => {
     if (name !== "" && lastName !== "" && email !== "") {
@@ -27,25 +31,29 @@ export default function NewAccount(props) {
           email: email,
           password: password,
           confirmpassword: confirmPassword,
-        }).then(() => {
-          setUser([
-            ...user,
-            {
-              username: name,
-              userlastname: lastName,
-              email: email,
-              password: password,
-              confirmpassword: confirmPassword,
-            },
-          ]);
+        }).then((response) => {
+          if (response.data.message) {
+            setIdentificator(0);
+            setMessage(response.data.message);
+          } else {
+            setUser([
+              ...user,
+              {
+                username: name,
+                userlastname: lastName,
+                email: email,
+                password: password,
+                confirmpassword: confirmPassword,
+              },
+            ]);
+            setIdentificator(1);
+          }
         });
-        window.alert("Conta criada com sucesso!");
-        props.setIsCreated(true);
       } else {
-        window.alert("Senhas não conferem!");
+        setIdentificator(2);
       }
     } else {
-      window.alert("Preencha todos os campos obrigatórios!");
+      setIdentificator(3);
     }
   };
   return (
@@ -57,7 +65,39 @@ export default function NewAccount(props) {
           </div>
           <div className="titulo">
             <h1>Crie sua Conta</h1>
+            {identificator === 0 ? (
+              <div className="failed-message">
+                <BiErrorAlt className="icon-failed" />
+                <small className="account-error-message">{message}</small>
+              </div>
+            ) : identificator === 1 ? (
+              <div className="success-message">
+                <BsCheckCircle />
+                <small>Conta criada com Sucesso!</small>
+                <button
+                  className="btn-success-message"
+                  onClick={() => props.setIsCreated(true)}
+                >
+                  Fazer Login
+                </button>
+              </div>
+            ) : identificator === 2 ? (
+              <div className="failed-message">
+                <BiErrorAlt className="icon-failed" />
+                <small className="account-error-message">
+                  As senhas não correspondem
+                </small>
+              </div>
+            ) : identificator === 3 ? (
+              <div className="failed-message">
+                <BiErrorAlt className="icon-failed" />
+                <small className="account-error-message">
+                  Preencha todos os campos obrigatórios
+                </small>
+              </div>
+            ) : null}
           </div>
+
           <form
             method="post"
             className="container"

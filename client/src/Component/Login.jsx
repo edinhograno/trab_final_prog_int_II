@@ -9,7 +9,7 @@ import {
   NewAccountLogin,
   LoginButtons,
 } from "../Component/style/Login";
-import Menu from "../Component/Menu";
+import { BiErrorAlt } from "react-icons/bi";
 import Axios from "axios";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
@@ -17,6 +17,8 @@ export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPass, setIsPass] = useState(true);
+  const [failed, setFailed] = useState(false);
+  const [message, setMessage] = useState("");
 
   const verificaDados = () => {
     Axios.post("http://localhost:3001/user", {
@@ -25,8 +27,10 @@ export default function Login(props) {
     })
       .then((response) => {
         if (response.data.message) {
-          window.alert("Usuário ou senha inválidos");
+          setFailed(true);
+          setMessage(response.data.message);
         } else {
+          setFailed(false);
           props.setIsLogged(true);
           props.setNome(response.data[0].username);
         }
@@ -37,13 +41,12 @@ export default function Login(props) {
   };
   return (
     <LoginPage>
-      <Menu />
       <LoginInfo>
-        <div className="titulo">
+        <div className="titulo espacamento">
           <h1>Fazer login</h1>
           <small>Painel administrativo</small>
         </div>
-        <LoginDados className="w-80">
+        <LoginDados className="w-80 espacamento">
           <div className="email">
             <input
               type="text"
@@ -70,20 +73,28 @@ export default function Login(props) {
 
             <label htmlFor="">Password</label>
           </div>
+          {failed ? (
+            <div className="failed-message">
+              <BiErrorAlt className="icon-failed" />
+              <small>{message}</small>
+            </div>
+          ) : null}
         </LoginDados>
-        <LoginButtons className="w-80">
+        <LoginButtons className="w-80 espacamento">
           <BtnLogin>
-            <button className="btn-social" onClick={verificaDados}>
+            <button
+              className="btn-social espacamento-button"
+              onClick={verificaDados}
+            >
               Logar
             </button>
           </BtnLogin>
           <LoginSocial>
-            <button className="btn-social">Facebook</button>
-            <button className="btn-social">Google</button>
+            <button className="btn-social espacamento-button">Facebook</button>
+            <button className="btn-social espacamento-button">Google</button>
           </LoginSocial>
         </LoginButtons>
-
-        <NewAccountLogin className="w-80">
+        <NewAccountLogin className="w-80 espacamento">
           <Link
             onClick={() => props.setIsCreated(false)}
             className="btn-account"

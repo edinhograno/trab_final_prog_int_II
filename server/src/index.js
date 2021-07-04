@@ -29,13 +29,23 @@ app.post("/create", upload.single("img"), async (req, res) => {
   const novoValor = req.body.novoValor;
 
   db.query(
-    "INSERT INTO tenis (nome, img, valorAntigo, valorNovo) VALUES (?,?,?,?)",
-    [nome, img, valor, novoValor],
+    "SELECT * FROM tenis WHERE img = ? or nome = ?",
+    [img, nome],
     (err, result) => {
-      if (err) {
-        console.log(err);
+      if (result.length > 0) {
+        res.send({ message: "Tênis já cadastrado" });
       } else {
-        res.send("Tenis Cadastrado");
+        db.query(
+          "INSERT INTO tenis (nome, img, valorAntigo, valorNovo) VALUES (?,?,?,?)",
+          [nome, img, valor, novoValor],
+          (err, result) => {
+            if (err) {
+              console.log(err);
+            } else {
+              res.send({ message: "Tenis Cadastrado com sucesso!" });
+            }
+          }
+        );
       }
     }
   );
@@ -48,17 +58,23 @@ app.post("/createUser", (req, res) => {
   const password = req.body.password;
   const confirmpassword = req.body.confirmpassword;
 
-  db.query(
-    "INSERT INTO users (username, userlastname, email, password, confirmpassword) VALUES (?,?,?,?,?)",
-    [username, userlastname, email, password, confirmpassword],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send("Tenis Cadastrado");
-      }
+  db.query("SELECT * from users where email = ?", [email], (err, result) => {
+    if (result.length > 0) {
+      res.send({ message: "Usuário já cadastrado" });
+    } else {
+      db.query(
+        "INSERT INTO users (username, userlastname, email, password, confirmpassword) VALUES (?,?,?,?,?)",
+        [username, userlastname, email, password, confirmpassword],
+        (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send("Usuário Cadastrado");
+          }
+        }
+      );
     }
-  );
+  });
 });
 
 app.get("/tenis", (req, res) => {
