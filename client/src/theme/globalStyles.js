@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .w-1200 {
     margin: 0 auto;
-    max-width: 75rem;
+    max-width: 60rem;
   }
 `;
 

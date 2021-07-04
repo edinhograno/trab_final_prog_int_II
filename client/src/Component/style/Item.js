@@ -9,7 +9,6 @@ export const ContainerProduct = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* background-color: red; */
 
   .btn-add {
     height: 3rem;
@@ -53,10 +52,10 @@ export const ContainerItem = styled.div`
   .item {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    min-width: 20rem;
-    max-width: 22.5rem;
+    min-width: 15rem;
+    max-width: 15rem;
     flex: 1;
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -77,9 +76,14 @@ export const ContainerItem = styled.div`
         color: ${corLaranja};
       }
     }
+    .itemcontent-item {
+      max-height: 5rem;
+      margin-bottom: 1.5rem;
+    }
+
     h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       color: ${corLaranjaClaro};
       opacity: 0.8;
       transition: opacity 0.3s ease-in-out;
@@ -90,8 +94,10 @@ export const ContainerItem = styled.div`
       display: flex;
       justify-content: center;
       /* background-color: red; */
-      width: 100%;
+      max-width: 100%;
       img {
+        object-fit: contain;
+        width: 100%;
         max-height: 10rem;
       }
     }
@@ -216,7 +222,7 @@ export const ItemButtons = styled.div`
   }
 `;
 export const BtnItem = styled.button`
-  padding: 1rem 4rem;
+  padding: 0.7rem 3rem;
   border: none;
   background-color: ${corRoxa};
   color: #fff;

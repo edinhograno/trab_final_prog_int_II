@@ -29,10 +29,11 @@ export const ContainerUser = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  padding: 0.2rem;
 
   .logout-icon {
     align-self: flex-end;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #fff;
     margin-right: 0.3rem;
     margin-bottom: 0.3rem;
@@ -56,6 +57,7 @@ export const ContainerUser = styled.div`
   }
 
   .welcome {
+    font-size: 0.8rem;
     flex: 1;
     height: 100%;
     justify-content: flex-end;

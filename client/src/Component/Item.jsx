@@ -141,7 +141,7 @@ export default function Item() {
                     <div className="containerImg">
                       <img src={val.img} alt="" />
                     </div>
-                    <ItemContent>
+                    <ItemContent className="itemcontent-item">
                       <div className="preco">
                         <p className="de">R$ {val.valorAntigo}</p>
                         <p>
