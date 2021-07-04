@@ -1,21 +1,30 @@
+const { dbConfig, s3Config, s3Bucket } = require("../config");
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
+const multer = require("multer");
+const aws = require("aws-sdk");
+const s3 = new aws.S3(s3Config);
 
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "",
-  database: "loja",
-});
+const db = mysql.createConnection(dbConfig);
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-app.post("/create", (req, res) => {
+app.post("/create", upload.single("img"), async (req, res) => {
+  const { Location: url } = await s3
+    .upload({
+      Bucket: s3Bucket,
+      Body: req.file.buffer,
+      Key: req.file.originalname,
+      ACL: "public-read",
+    })
+    .promise();
   const nome = req.body.nome;
-  const img = req.body.img;
+  const img = url;
   const valor = req.body.valor;
   const novoValor = req.body.novoValor;
 
@@ -99,15 +108,22 @@ app.put("/update", (req, res) => {
   );
 });
 
-app.delete("/delete", (req, res) => {
+app.delete("/delete", async (req, res) => {
+  const url = req.query.img;
+  await s3
+    .deleteObject({
+      Bucket: s3Bucket,
+      Key: url.split("/").pop(),
+    })
+    .promise();
   id = req.query.id;
-  console.log(id);
 
   db.query("DELETE FROM tenis WHERE id = ?", [id], (err, result) => {
     if (err) {
       console.log(err);
     } else {
       res.send(result);
+      console.log(`Produto com id ${id} deletado com sucesso!`);
     }
   });
 });

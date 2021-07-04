@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import imgTenis from "../img/tenis.png";
 import {
   ContainerItem,
   ItemContent,
@@ -19,19 +18,22 @@ export default function Item() {
   const [nome, setNome] = useState("");
   const [valor, setValor] = useState(0);
   const [novoValor, setNovoValor] = useState(0);
+  const [img, setImg] = useState("");
 
   useEffect(() => {
     Axios.get("http://localhost:3001/tenis")
       .then((response) => {
         setTenis(response.data);
+        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, [tenis]);
 
   const deleteTenis = () => {
-    Axios.delete(`http://localhost:3001/delete?id=${id}`)
+    Axios.delete(`http://localhost:3001/delete?id=${id}&img=${img}`)
+
       .then((res) => {
         console.log(res);
       })
@@ -76,7 +78,7 @@ export default function Item() {
                     {id === val.id && (
                       <ItemContent className="itemContentInput">
                         <div className="imgContent">
-                          <img src={imgTenis} alt="" />
+                          <img src={val.img} alt="" />
                         </div>
                         <div className="textContent">
                           <label htmlFor="">Novo Nome</label>
@@ -138,7 +140,7 @@ export default function Item() {
                   <div className="item">
                     <h1>{val.nome}</h1>
                     <div className="containerImg">
-                      <img src={imgTenis} alt="" />
+                      <img src={val.img} alt="" />
                     </div>
                     <ItemContent>
                       <div className="preco">
@@ -153,7 +155,8 @@ export default function Item() {
                         onClick={() => {
                           setAlterar(true);
                           setId(val.id);
-                          console.log(val.id);
+                          setImg(val.img);
+                          console.log(val.img);
                           setIsVisible(false);
                         }}
                       >

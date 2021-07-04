@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/edinhograno/trab_final_prog_int_II",
+  "author": "edinhograno <granomotorista@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.9"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.939.0",
+    "dotenv": "^10.0.0",
+    "multer": "^1.4.2"
+  }
+}

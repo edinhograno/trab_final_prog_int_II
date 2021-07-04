@@ -10,24 +10,16 @@ export default function CadastroItem(props) {
   const [valor, setValor] = useState(0);
   const [novoValor, setNovoValor] = useState(0);
 
-  const [tenis, setTenis] = useState([]);
+  const addTenis = async () => {
+    const formData = new FormData();
 
-  const addTenis = () => {
-    Axios.post("http://localhost:3001/create", {
-      nome: nome,
-      img: img,
-      valor: valor,
-      novoValor: novoValor,
-    }).then(() => {
-      setTenis([
-        ...tenis,
-        {
-          nome: nome,
-          img: img,
-          valor: valor,
-          novoValor: novoValor,
-        },
-      ]);
+    formData.append("nome", nome);
+    formData.append("img", img);
+    formData.append("valor", valor);
+    formData.append("novoValor", novoValor);
+
+    await Axios.post("http://localhost:3001/create", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
     });
   };
 
@@ -61,7 +53,7 @@ export default function CadastroItem(props) {
                 </label>
                 <input
                   onChange={(e) => {
-                    setImg(e.target.value);
+                    setImg(e.target.files[0]);
                   }}
                   type="file"
                   id="arquivo"
