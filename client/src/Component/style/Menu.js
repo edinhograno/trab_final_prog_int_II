@@ -14,8 +14,8 @@ export const ContentHeader = styled.div`
 export const Logo = styled.div`
   height: 100%;
   max-width: 10rem;
-  padding: 0 1.5rem;
-  width: 30%;
+  padding: 0 0.5rem;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,6 +66,7 @@ export const ContainerUser = styled.div`
   }
   .name {
     flex: 2;
+    font-size: 1.5rem;
     height: 100%;
     opacity: 0.9;
   }

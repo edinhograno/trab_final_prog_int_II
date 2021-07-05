@@ -80,7 +80,7 @@ export const LoginInfo = styled.div`
     h1 {
       margin: 0;
       color: ${corRoxa};
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 400;
     }
 
@@ -88,6 +88,12 @@ export const LoginInfo = styled.div`
       color: ${corRoxa};
       text-transform: uppercase;
       font-size: 0.7rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
     }
   }
 `;
@@ -116,6 +122,7 @@ export const LoginDados = styled.div`
 
   .password {
     position: relative;
+    margin-top: 0.5rem;
     .password-btn {
       position: absolute;
       right: 0;
