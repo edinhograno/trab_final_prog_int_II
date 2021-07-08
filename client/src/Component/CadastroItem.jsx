@@ -21,8 +21,8 @@ export default function CadastroItem(props) {
 
       formData.append("nome", nome);
       formData.append("img", img);
-      formData.append("valor", valor);
-      formData.append("novoValor", novoValor);
+      formData.append("valor", valor.replace(",", "."));
+      formData.append("novoValor", novoValor.replace(",", "."));
 
       await Axios.post("http://localhost:3001/create", formData, {
         headers: { "Content-Type": "multipart/form-data" },

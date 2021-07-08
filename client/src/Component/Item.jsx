@@ -106,10 +106,12 @@ export default function Item() {
                           />
                           <label htmlFor="">Novo Valor</label>
                           <input
-                            type="number"
+                            type="text"
                             name=""
                             id=""
-                            placeholder={val.valorNovo}
+                            placeholder={val.valorNovo
+                              .toFixed(2)
+                              .replace(".", ",")}
                             onChange={(e) => {
                               setNovoValor(e.target.value);
                               setValor(val.valorNovo);
@@ -198,9 +200,12 @@ export default function Item() {
                     </div>
                     <ItemContent className="itemcontent-item">
                       <div className="preco">
-                        <p className="de">R$ {val.valorAntigo}</p>
+                        <p className="de">
+                          R$ {val.valorAntigo.toFixed(2).replace(".", ",")}
+                        </p>
                         <p>
-                          <span>R$</span> {val.valorNovo}
+                          <span>R$</span>{" "}
+                          {val.valorNovo.toFixed(2).replace(".", ",")}
                         </p>
                       </div>
                     </ItemContent>
