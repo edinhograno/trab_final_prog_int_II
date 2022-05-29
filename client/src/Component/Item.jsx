@@ -99,6 +99,8 @@ export default function Item() {
                           <label htmlFor="">Novo Nome</label>
                           <input
                             type="text"
+                            name="newname"
+                            id="newname"
                             placeholder={val.nome}
                             onChange={(e) => {
                               setNome(e.target.value);
@@ -107,8 +109,8 @@ export default function Item() {
                           <label htmlFor="">Novo Valor</label>
                           <input
                             type="text"
-                            name=""
-                            id=""
+                            name="newvalue"
+                            id="newvalue"
                             placeholder={val.valorNovo
                               .toFixed(2)
                               .replace(".", ",")}
@@ -119,12 +121,13 @@ export default function Item() {
                           />
                         </div>
                         <div className="update">
-                          <small>{update}</small>
+                          <small className="msgUpdate">{update}</small>
                         </div>
 
                         <ItemButtons className="itemButtonsInput">
                           <BtnItem
                             className="btnInput"
+                            id="btnUpdate"
                             onClick={() => {
                               updateTenis();
                               setDel(false);
@@ -138,6 +141,7 @@ export default function Item() {
                               setUpdate("");
                             }}
                             className="btnInput"
+                            id="btnDelete"
                           >
                             Deletar
                           </BtnItem>
@@ -148,6 +152,7 @@ export default function Item() {
                               setDel(false);
                             }}
                             className="btnInput"
+                            id="btnCancel"
                           >
                             Voltar
                           </BtnItem>
@@ -182,7 +187,9 @@ export default function Item() {
                               </button>
                               {confirmDelete !== "delete" &&
                               confirmDelete !== "" ? (
-                                <small>Texto digitado inválido</small>
+                                <small className="msg-invalid">
+                                  Texto digitado inválido
+                                </small>
                               ) : confirmDelete === "delete" ? (
                                 <small>Você irá deletar o tênis</small>
                               ) : null}
@@ -218,6 +225,7 @@ export default function Item() {
                           console.log(val.img);
                           setIsVisible(false);
                         }}
+                        id={`item-${val.id}`}
                       >
                         Alterar
                       </BtnItem>

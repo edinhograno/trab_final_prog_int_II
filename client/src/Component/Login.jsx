@@ -53,6 +53,7 @@ export default function Login(props) {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
+              name="loginemail"
             />
             <label htmlFor="">Email</label>
           </div>
@@ -62,6 +63,7 @@ export default function Login(props) {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
+              name="loginpassword"
             />
             <button className="password-btn" onClick={() => setIsPass(!isPass)}>
               {isPass ? (
@@ -76,14 +78,14 @@ export default function Login(props) {
           {failed ? (
             <div className="failed-message">
               <BiErrorAlt className="icon-failed" />
-              <small>{message}</small>
+              <small className="login-error">{message}</small>
             </div>
           ) : null}
         </LoginDados>
         <LoginButtons className="w-80 espacamento">
           <BtnLogin>
             <button
-              className="btn-social espacamento-button"
+              className="btn-social espacamento-button btn-login"
               onClick={verificaDados}
             >
               Logar

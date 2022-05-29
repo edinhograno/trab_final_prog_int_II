@@ -108,12 +108,12 @@ export default function CadastroItem(props) {
                 (message === "Tenis Cadastrado com sucesso!" ? (
                   <div className="check-shoes">
                     <BsCheckCircle className="icon-check" />
-                    <small>{message}</small>
+                    <small className="register-success">{message}</small>
                   </div>
                 ) : (
                   <div className="check-shoes check-shoes-failed">
                     <BiErrorAlt className="icon-check" />
-                    <small>{message}</small>
+                    <small className="register-error">{message}</small>
                   </div>
                 ))}
             </div>
